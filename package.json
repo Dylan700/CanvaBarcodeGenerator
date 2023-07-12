@@ -28,6 +28,7 @@
     "@canva/preview": "./sdk/preview",
     "@canva/user": "./sdk/user",
     "clsx": "^1.2.1",
+    "jsbarcode": "^3.11.5",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },
