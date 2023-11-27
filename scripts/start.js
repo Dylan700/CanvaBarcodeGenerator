@@ -23,7 +23,6 @@ const { argv } = yargs(hideBin(process.argv))
 
 const ROOT_DIR = path.join(__dirname, "..");
 const SRC_DIR = path.join(ROOT_DIR, "src");
-const EXAMPLES_DIR = path.join(ROOT_DIR, "examples");
 
 const {
   CANVA_FRONTEND_PORT,
@@ -37,10 +36,6 @@ const BACKEND_URL = `http://localhost:${CANVA_BACKEND_PORT}`;
 const getFrontendUrl = (protocol) =>
   `${protocol}://localhost:${CANVA_FRONTEND_PORT}`;
 
-if (!fs.existsSync(EXAMPLES_DIR)) {
-  throw new Error(`Directory does not exist: ${EXAMPLES_DIR}`);
-}
-
 if (!CANVA_FRONTEND_PORT) {
   throw new Error("CANVA_FRONTEND_PORT environment variable is not defined");
 }
@@ -48,8 +43,6 @@ if (!CANVA_FRONTEND_PORT) {
 if (!CANVA_BACKEND_PORT) {
   throw new Error("CANVA_BACKEND_PORT environment variable is not defined");
 }
-
-const [example] = argv._;
 
 const SHOULD_RUN_NGROK = argv.ngrok || process.env.npm_config_ngrok;
 const SHOULD_ENABLE_HTTPS = argv.useHttps || process.env.npm_config_use_https;
@@ -62,7 +55,7 @@ if (HMR_ENABLED && APP_ID.length === 0) {
   );
 }
 
-const ENTRY_DIR = example ? path.join(EXAMPLES_DIR, example) : SRC_DIR;
+const ENTRY_DIR =  SRC_DIR;
 
 async function start() {
   if (!fs.existsSync(ENTRY_DIR)) {

@@ -1,10 +1,15 @@
-# Canva Apps SDK starter kit
+# Canva Barcode Generator App
 
-Welcome to the **Apps SDK starter kit** for Canva's app development platform. 🎉
+Generate barcodes in different sizes and colours in Canva! This app supports the following barcodes:
+   - EAN13 
+   - EAN8 
+   - UPC 
+   - CODE39 
+   - ITF14 
+   - MSI 
+   - Pharmacode 
+   - Codabar 
 
-This repo contains everything you need to get an app up and running in a matter of minutes, including a boilerplate project and lots of examples. The complete documentation for the platform is at [canva.dev/docs/apps](https://www.canva.dev/docs/apps/).
-
-**Note:** The starter kit and documentation assumes some experience with TypeScript and React.
 
 ## Requirements
 
@@ -15,12 +20,12 @@ This repo contains everything you need to get an app up and running in a matter 
 ## Quick start
 
 ```bash
-git clone git@github.com:canva-sdks/canva-apps-sdk-starter-kit.git
+git clone git@github.com:Dylan700/CanvaBarcodeGenerator.git
 cd canva-apps-sdk-starter-kit
 npm install
 ```
 
-## Using the boilerplate
+## Development
 
 ### Step 1: Start the local development server
 
@@ -109,92 +114,3 @@ To preview apps in Safari:
 4. In the Developer Portal, set the app's **Development URL** to <https://localhost:8080>.
 
 You need to bypass the invalid security certificate warning every time you start the local server. A similar warning will appear in other browsers (and will need to be bypassed) whenever HTTPS is enabled.
-
-## Running the examples
-
-The `examples` directory contains example apps that demonstrate the available APIs.
-
-To start an example's development server, run the following command:
-
-```bash
-npm start <example-name>
-```
-
-But replace `<example-name>` with the name of an example, like so:
-
-```bash
-npm start native_image_elements
-```
-
-Like the boilerplate, a development server becomes available at http://localhost:8080.
-
-### Running an example's backend
-
-Some examples have a backend. This backend is defined in the example's `backend/server.ts` file, automatically starts when the `npm start` command is run, and becomes available at http://localhost:3001.
-
-To run examples that have a backend:
-
-1. Navigate to the [Your apps](https://www.canva.com/developers/apps) page.
-2. Copy the ID of an app from the **App ID** column.
-3. In the starter kit's `.env` file, set `CANVA_APP_ID` to the ID of the app.
-
-   For example:
-
-   ```bash
-   CANVA_APP_ID=AABBccddeeff
-   CANVA_BACKEND_PORT=3001
-   CANVA_FRONTEND_PORT=8080
-   CANVA_BACKEND_HOST=http://localhost:3001
-   CANVA_HMR_ENABLED=TRUE
-   ```
-
-4. Start the example:
-
-   ```bash
-   npm start fetch
-   ```
-
-The ID of the app must be explicitly defined because it's required to [send and verify HTTP requests](https://www.canva.dev/docs/apps/send-request/). If you don't set up the ID in the `.env` file, an error will be thrown when attempting to run the example.
-
-## Customizing the backend host
-
-If your app has a backend, the URL of the server likely depends on whether it's a development or production build. For example, during development, the backend is probably running on a localhost URL, but once the app's in production, the backend needs to be exposed to the internet.
-
-To more easily customize the URL of the server:
-
-1. Open the `.env` file in the text editor of your choice.
-2. Set the `CANVA_BACKEND_HOST` environment variable to the URL of the server.
-3. When sending a request, use `BACKEND_HOST` as the base URL:
-
-   ```ts
-   const response = await fetch(`${BACKEND_HOST}/custom-route`);
-   ```
-
-   **Note:** `BACKEND_HOST` is a global constant that contains the value of the `CANVA_BACKEND_HOST` environment variable. The variable is made available to the app via webpack and does not need to be imported.
-
-4. Before bundling the app for production, update `CANVA_BACKEND_HOST` to point to the production backend.
-
-## Using icons
-
-The `icons` directory contains a number of icons from Easel, Canva's design system. You can use these icons in your app to ensure that it has a consistent look and feel with the core Canva experience.
-
-To use an icon, import it:
-
-```tsx
-import AlignTextLeft from "assets/icons/align-text-left.svg";
-```
-
-Then use it like any other React component:
-
-```tsx
-<AlignTextLeft />
-```
-
-The icon components accept a `size` prop, which can be set to any of the following values:
-
-- `"tiny"`
-- `"small"`
-- `"medium"`
-- `"large"`
-
-The default value is `"medium"`.
