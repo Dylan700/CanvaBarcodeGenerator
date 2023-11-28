@@ -8,8 +8,9 @@ Generate barcodes in different sizes and colours in Canva! This app supports the
    - ITF14 
    - MSI 
    - Pharmacode 
-   - Codabar 
+   - Codabar
 
+![barcode_generator](https://github.com/Dylan700/CanvaBarcodeGenerator/assets/54528768/f5a6d792-6c9a-4a1c-a083-4e211d004db7)
 
 ## Requirements
 
