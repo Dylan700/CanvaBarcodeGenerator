@@ -108,6 +108,8 @@ export const App = () => {
           description="The quality of the barcode image."
           control={(props) => (
             <NumberInput
+              max={25}
+              min={1}
               onChange={(data) =>
                 setInput((i) => ({
                   ...i,
