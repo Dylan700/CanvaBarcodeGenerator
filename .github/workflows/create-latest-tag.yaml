@@ -3,7 +3,6 @@ name: "Create Latest Tag"
 on:
   release:
     types: [released]
-    branches: main 
 
 jobs:
   run:
