@@ -2,7 +2,7 @@ name: "Create Latest Tag"
 
 on:
   release:
-    types: [published]
+    types: [released]
     branches: main 
 
 jobs:
