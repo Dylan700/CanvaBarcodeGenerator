@@ -1,7 +1,7 @@
 {
   "name": "canva-apps-sdk-starter-kit",
   "description": "A boilerplate for creating Canva Apps.",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "engines": {
     "node": "^18",
     "npm": "^9"
@@ -21,7 +21,7 @@
   "license": "SEE LICENSE IN LICENSE.md",
   "private": true,
   "dependencies": {
-    "@canva/app-ui-kit": "^1.0.0-beta.2",
+    "@canva/app-ui-kit": "^3.1.0",
     "@canva/asset": "./sdk/asset",
     "@canva/data-provider": "./sdk/data_provider",
     "@canva/design": "./sdk/design",
