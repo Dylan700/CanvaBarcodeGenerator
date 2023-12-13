@@ -8,6 +8,7 @@ import {
   Select,
   Text,
   TextInput,
+  ColorSelector,
 } from "@canva/app-ui-kit";
 import { addNativeElement } from "@canva/design";
 import * as React from "react";
@@ -82,6 +83,7 @@ export const App = () => {
           control={(props) => (
             <Select
               {...props}
+              stretch
               options={Object.values(BarcodeFormat).map((v) => ({
                 value: v.toString(),
                 label: v.toString(),
@@ -104,10 +106,11 @@ export const App = () => {
           )}
         />
         <FormField
-          label="Resolution"
+          label="Resolution (in pixels)"
           description="The quality of the barcode image."
           control={(props) => (
             <NumberInput
+              hasSpinButtons={true}
               max={25}
               min={1}
               onChange={(data) =>
@@ -117,19 +120,20 @@ export const App = () => {
                 }))
               }
               placeholder="10"
+              decrementAriaLabel="Decrease value"
+              incrementAriaLabel="Increase value"
             />
           )}
         />
-        <FormField
-          label="Color"
-          description="The color of the barcode image."
-          control={(props) => (
-            <TextInput
-              onChange={(data) => setInput((i) => ({ ...i, color: data }))}
-              placeholder="#000000"
-            />
-          )}
-        />
+        <Columns spacing="0" align="spaceBetween" alignY="center">
+          <Text>
+            <b>Barcode Image Color</b>
+          </Text>
+          <ColorSelector // Use the Color Selector component
+            onChange={(data) => setInput((i) => ({ ...i, color: data }))}
+            color={input.color}
+          />
+        </Columns>
         <Button
           variant="primary"
           onClick={onClick}
