@@ -16,7 +16,7 @@ import * as React from "react";
 import styles from "styles/components.css";
 
 import generateBarcode from "./BarcodeGenerator";
-import BarcodeFormat from "./BarcodeFormat";
+import BarcodeFormat, { BarcodeFormatDescriptions } from "./BarcodeFormat";
 
 type UserInput = {
   format: BarcodeFormat;
@@ -51,13 +51,13 @@ export const App = () => {
         ),
       });
     } catch (e: any) {
-      if (e.name === "InvalidInputException") {
-        setErrorMessage(
-          `The data you have provided is not valid for a ${input.format} barcode.`
-        );
-      } else {
-        setErrorMessage(e);
-      }
+      setErrorMessage(
+        `The data you have provided is not valid for the ${
+          input.format
+        } barcode. ${input.format} barcodes ${
+          BarcodeFormatDescriptions[input.format]
+        }.`
+      );
     }
     setIsGenerating(false);
   };
