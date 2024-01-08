@@ -105,26 +105,6 @@ export const App = () => {
             />
           )}
         />
-        <FormField
-          label="Resolution (in pixels)"
-          description="The quality of the barcode image."
-          control={(props) => (
-            <NumberInput
-              hasSpinButtons={true}
-              max={25}
-              min={1}
-              onChange={(data) =>
-                setInput((i) => ({
-                  ...i,
-                  resolution: data ? data : i.resolution,
-                }))
-              }
-              placeholder="10"
-              decrementAriaLabel="Decrease value"
-              incrementAriaLabel="Increase value"
-            />
-          )}
-        />
         <Columns spacing="0" align="spaceBetween" alignY="center">
           <Text>
             <b>Barcode Image Color</b>
